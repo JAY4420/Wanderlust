@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><i class="fa-solid fa-sliders"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav links">
+        <a class="nav-link active lin" href="/listings">Explore</a>
+      </div>
+      <div class="navbar-nav ms-lg-auto search-box">
+        <div class="d-flex search search-div">
+          <input class="form-control me-2" id="search-input" type="search" placeholder="Search Destinations" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass search-ico"></i>
+        </div>
+        <div class="result-box">
+
+        </div>
+      </div>
+      <div class="navbar-nav links ms-auto">
+        <a class="nav-link active lin" href="/listings/new">Add Places</a>
+        <% if(!currUser){ %>
+        <button class="rounded-full btn-success"><a class="cred-butn link nav-link active" href="/user/signup"><b>SignUp</b></a></button>
+        <button class="rounded-full marg btn-success"><a class="cred-butn link nav-link active" href="/user/login"><b>LogIn</b></a></button>
+        <% } %>
+        <% if(currUser){ %>
+        <button class="rounded-full btn-success"><a class="cred-butn link nav-link active" href="/user/logout"><b>LogOut</b></a></button>
+        <% } %>
+    </div>
+  </div>
+</nav>

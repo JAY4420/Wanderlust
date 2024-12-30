@@ -1,0 +1,90 @@
+<% layout('/layouts/boilerplate.ejs') %>
+
+    <div id="filters">
+        <div class="filter">
+            <div class="fsi"><i class="fa-solid fa-fire fsi"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div class="fsi"><i class="fa-solid fa-bed fsi"></i></div>
+            <p>Room</p>
+        </div>
+        <div class="filter">
+            <div class="fsi"><i class="fa-solid fa-mountain-city fsi"></i></div>
+            <p>Iconic Cities</p>
+        </div>
+        <div class="filter">
+            <div class="fsi"><i class="fa-solid fa-mountain fsi"></i></div>
+            <p>Mountain</p>
+        </div><div class="filter">
+            <div class="fsi"><i class="fa-brands fa-fort-awesome fsi"></i></div>
+            <p>Castles</p>
+        </div>
+        <div class="filter">
+            <div class="fsi"><i class="fa-solid fa-person-swimming fsi"></i></div>
+            <p>Amazing Pools</p>
+        </div>
+            <div class="filter">
+            <div class="fsi"><i class="fa-solid fa-campground fsi"></i></div>
+            <p>Camping</p>
+        </div>
+        <div class="filter">
+            <div class="fsi"><i class="fa-solid fa-tractor fsi"></i></div>
+            <p>Farms</p>
+        </div>
+        <div class="filter">
+            <div class="fsi"><i class="fa-brands fa-galactic-republic fsi"></i></div>
+            <p>Arctic</p>
+        </div>
+        <div class="filter">
+            <div class="fsi"><i class="fa-solid fa-igloo fsi"></i></div>
+            <p>Domes</p>
+        </div>
+        <div class="filter">
+            <div class="fsi"><i class="fa-solid fa-ship fsi"></i></div>
+            <p>Boats</p>
+        </div>
+
+
+        <div class="tax-toggle cursor-pointer">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input cursor-pointer" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label cursor-pointer" for="flexSwitchCheckDefault">Display Total After Taxes</label>
+              </div>
+        </div>
+    </div>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% for(let listing of allListing){ %>
+            <a class="atag" href="/listings/<%= listing._id %>">
+                <div class="listing-card col card">
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="place_image" style="height: 20rem;">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <p class="card-title"><b><%= listing.title %></b></p>
+                            <p class="card-descr"><%= listing.description %></p>
+                            <p class="card-price"><b><%= listing.price %>₹</b> /night 
+                                <i class="text-info">+18%GST </i> 
+                            </p> 
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <% } %>
+    </div>
+    <br>
+
+    <script>
+        let texSwitch = document.getElementById("flexSwitchCheckDefault");
+        texSwitch.addEventListener("click",()=>{
+            let taxinfo = document.getElementsByClassName("text-info");
+            for(info of taxinfo){
+                if(info.style.display !=  "inline"){
+                    info.style.display = "inline";
+                    info.style.color = "black";                   
+                }else{
+                    info.style.display = "none";
+                }
+            }
+        })
+    </script>

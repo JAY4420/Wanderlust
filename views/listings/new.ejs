@@ -1,0 +1,48 @@
+<% layout('/layouts/boilerplate.ejs') %>
+
+    <body class="n-body">
+                <h2>Create a New Listing</h2>
+                <form method="POST" action="/listings" novalidate class="needs-validation n-form" enctype="multipart/form-data">
+                    <div class="mb-3 form-floating">
+                        <input type="text" placeholder="Enter title" name="listing[title]" id="title"
+                            class="form-control" required>
+                            <label for="title" >Title  </label>
+                            <div class="invalid-feedback"> Title is required ! </div>
+                    </div>
+                    <div class="mb-3 form-floating n-desc">
+                        <textarea placeholder="Enter description" name="listing[description]" id="description"
+                            class="form-control" required></textarea>
+                            <label for="description">Description  </label>
+                            <div class="invalid-feedback"> Description is required ! </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image  </label>
+                        <input type="file" name="listing[image]" id="image" class="form-control" >
+                    </div>
+                    <div class="n-price-country">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"> ₹ </span>
+                            <input type="number" placeholder="1200" name="listing[price]" id="price"
+                                class="form-control" required>
+                                <div class="invalid-feedback"> Price is required ! </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-earth-americas"></i>
+                            </span>
+                            <input type="text" placeholder="India" name="listing[country]" id="country"
+                                class="form-control" required>
+                                <div class="invalid-feedback"> Country is required ! </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
+                        <input type="text" placeholder="Ahmedabad,Gujarat" name="listing[location]" id="location"
+                            class="form-control" required>
+                            <div class="invalid-feedback"> Location is required ! </div>
+                    </div>
+
+                    <button class="btn btn-success" type="submit"> ADD </button>
+                </form>
+    </body>

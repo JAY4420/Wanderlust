@@ -1,0 +1,48 @@
+<% layout('/layouts/boilerplate.ejs') %>
+
+    <body class="n-body">
+                <h2>Edit Listing</h2>
+                <form method="POST" class="n-form" action="/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data">
+                    <div class="mb-3 form-floating">
+                        <input type="text"  name="listing[title]" value="<%= listing.title %>" id="title"
+                            class="form-control" required>
+                            <label for="title" >Title  </label>
+                            <div class="invalid-feedback"> Title is required ! </div>
+                    </div>
+                    <div class="mb-3 form-floating n-desc">
+                        <textarea name="listing[description]" id="description" class="form-control" required><%= listing.description %></textarea>
+                        <label for="description">Description</label>
+                        <div class="invalid-feedback">Description is required!</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image  </label>
+                        <input type="file" name="listing[image]" id="image" value="<%= listing.image.url %>" class="form-control" >
+                    </div>
+                    <div class="n-price-country">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"> ₹ </span>
+                            <input type="number"  name="listing[price]" value="<%= listing.price %>" id="price"
+                                class="form-control" required>
+                                <div class="invalid-feedback"> Price is required ! </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-earth-americas"></i>
+                            </span>
+                            <input type="text"  name="listing[country]" value="<%= listing.country %>" id="country"
+                                class="form-control" required>
+                                <div class="invalid-feedback"> Country is required ! </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
+                        <input type="text"  name="listing[location]" value="<%= listing.location %>" id="location"
+                            class="form-control" required>
+                            <div class="invalid-feedback"> Location is required ! </div>
+                    </div>
+
+                    <button class="btn btn-success" type="submit"> EDIT </button>
+                </form>
+    </body>
